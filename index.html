@@ -51,9 +51,7 @@
   .hero p { font-size:19px; margin-bottom:28px; max-width:740px; opacity:.96; }
   .hero-badge { display:inline-block; background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.5); padding:6px 16px; border-radius:30px; font-size:14px; font-weight:600; margin-bottom:18px; }
   
-  /* Обертка для кнопок Hero */
   .hero-btns { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-
   .btn { display:inline-block; background:var(--blue-dark); color:#fff; padding:16px 36px; border-radius:10px; font-size:18px; font-weight:800; text-decoration:none; border:none; cursor:pointer; transition:.2s; }
   .btn:hover { background:#082a45; transform:translateY(-2px); }
   .btn-outline { background:transparent; color:#fff; border:2px solid #fff; }
@@ -63,36 +61,40 @@
   section h2 { font-size:30px; text-align:center; margin-bottom:40px; color:var(--blue-dark); }
   .gray { background:var(--sky-light); }
 
+  /* ===== КАК ЭТО РАБОТАЕТ ===== */
+  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; }
+  .step { background:var(--primary); border-radius:14px; padding:32px 24px; text-align:center; box-shadow:0 6px 18px rgba(41,171,226,.25); border:none; color:#fff; }
+  .step-num { width:54px; height:54px; background:#fff; color:var(--primary-dark); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:800; margin:0 auto 16px; }
+  .step h3 { font-size:19px; margin-bottom:8px; color:#fff; }
+  .step p { color:rgba(255,255,255,0.9); font-size:15px; }
+
   /* ===== QUICKCONNECT ===== */
   .qc-block { background:var(--pink); border-radius:16px; padding:40px 32px; box-shadow:0 10px 30px rgba(230,0,126,.3); border:none; max-width:820px; margin:0 auto; text-align:center; color:#fff; }
-  .qc-block .qc-icon { font-size:40px; margin-bottom:12px; }
   .qc-block h3 { font-size:26px; margin-bottom:12px; color:#fff; }
   .qc-block p { font-size:17px; max-width:640px; margin:0 auto; opacity:.95; }
   .qc-block .qc-tag { display:inline-block; background:#fff; color:var(--pink); border:none; padding:8px 20px; border-radius:20px; font-weight:800; font-size:14px; margin-top:20px; }
-
-  .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; }
-  .step { background:#fff; border-radius:14px; padding:28px; text-align:center; box-shadow:0 6px 18px rgba(41,171,226,.15); border-top:4px solid var(--primary); }
-  .step-num { width:54px; height:54px; background:var(--primary); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:800; margin:0 auto 16px; }
-  .step h3 { font-size:19px; margin-bottom:8px; color:var(--blue-dark); }
 
   .brands { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:20px; }
   .brand-tag { background:#fff; border:2px solid var(--primary); color:var(--primary-dark); padding:10px 22px; border-radius:30px; font-weight:700; font-size:17px; transition:.2s; }
   .brand-tag:hover { background:var(--primary); color:#fff; }
 
+  /* ===== ЦЕНЫ ===== */
   .prices { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
-  .price-card { background:#fff; border-radius:14px; padding:32px 24px; text-align:center; box-shadow:0 6px 18px rgba(41,171,226,.15); border-top:5px solid var(--primary); display:flex; flex-direction:column; }
-  .price-card.highlight { border-top-color:var(--blue-dark); position:relative; }
+  .price-card { background:var(--primary); border-radius:14px; padding:32px 24px; text-align:center; box-shadow:0 6px 18px rgba(41,171,226,.25); border:none; display:flex; flex-direction:column; color:#fff; }
+  .price-card.highlight { background:var(--primary-dark); position:relative; }
   .price-card.highlight::before { content:"Выгодно"; position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:var(--blue-dark); color:#fff; padding:4px 16px; border-radius:20px; font-size:13px; font-weight:800; }
-  .price-card h3 { font-size:20px; margin-bottom:12px; color:var(--blue-dark); }
-  .price { font-size:40px; font-weight:900; color:var(--primary-dark); margin-bottom:6px; }
-  .price small { font-size:16px; font-weight:600; color:var(--muted); }
-  .price-desc { color:var(--muted); font-size:15px; margin-bottom:22px; flex:1; }
-  .price-card .btn { padding:13px 20px; font-size:16px; }
+  .price-card h3 { font-size:20px; margin-bottom:12px; color:#fff; }
+  
+  .price { font-size:40px; font-weight:900; color:#fff; margin-bottom:6px; display:flex; align-items:baseline; justify-content:center; gap:8px; flex-wrap:wrap; }
+  .price-desc { color:rgba(255,255,255,0.9); font-size:15px; margin-bottom:22px; flex:1; }
+  .price-card .btn { padding:13px 20px; font-size:16px; background:var(--blue-dark); color:#fff; }
+  .price-card .btn:hover { background:#082a45; }
 
   /* ===== ФОРМА ===== */
   .form-wrap { max-width:640px; margin:0 auto; background:#fff; border-radius:16px; padding:40px 32px; box-shadow:0 8px 28px rgba(41,171,226,.15); border:1px solid #c5dbeb; }
   .form-group { margin-bottom:20px; }
   .form-group label { display:block; font-weight:700; margin-bottom:6px; font-size:15px; color:var(--blue-dark); }
+  /* Стилизуем input и select одинаково */
   .form-group input, .form-group select, .form-group textarea { width:100%; padding:13px 15px; border:1.5px solid #b3cee0; border-radius:8px; font-size:16px; font-family:inherit; background:#f9fcff; }
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--primary); background:#fff; box-shadow:0 0 0 3px rgba(41,171,226,.2); }
   .form-group textarea { resize:vertical; min-height:80px; }
@@ -135,24 +137,10 @@
     .logo .soda, .logo .shop { font-size:24px; }
   }
 
-  /* Кнопки "Заказать обмен" и "Смотреть цены" в один ряд на мобилке */
   @media (max-width: 600px) {
-    .hero-btns {
-      flex-wrap: nowrap; /* Запрещаем перенос на новую строку */
-      gap: 8px;          /* Уменьшаем отступ между кнопками */
-      justify-content: flex-start;
-    }
-    .hero-btns .btn {
-      padding: 12px 16px; /* Уменьшаем отступы внутри кнопок */
-      font-size: 14px;    /* Уменьшаем шрифт */
-      white-space: nowrap;/* Запрещаем перенос текста внутри кнопки */
-      flex: 1;            /* Растягиваем кнопки равномерно */
-      text-align: center;
-    }
-    /* Убираем инлайн-стиль отступа, который мешал */
-    .hero-btns .btn[style*="margin-left"] {
-      margin-left: 0 !important;
-    }
+    .hero-btns { flex-wrap: nowrap; gap: 8px; justify-content: flex-start; }
+    .hero-btns .btn { padding: 12px 16px; font-size: 14px; white-space: nowrap; flex: 1; text-align: center; }
+    .hero-btns .btn[style*="margin-left"] { margin-left: 0 !important; }
   }
 
   @media (max-width: 380px) {
@@ -170,8 +158,8 @@
     <div class="header-contacts">
       <a class="phone" href="tel:+79013133818">+7 901 313-38-18</a>
       <div class="messenger-btns">
-        <a class="msg-btn msg-max" href="https://max.ru" target="_blank" rel="noopener">MAX</a>
-        <a class="msg-btn msg-tg" href="https://t.me/" target="_blank" rel="noopener">Telegram</a>
+        <a class="msg-btn msg-max" href="https://max.ru/465152118" target="_blank" rel="noopener">MAX</a>
+        <a class="msg-btn msg-tg" href="https://t.me/obmenballonov" target="_blank" rel="noopener">Telegram</a>
       </div>
     </div>
   </div>
@@ -183,7 +171,6 @@
     <h1>Обмен баллонов для сифонов<br><span>SodaStream, HomeBar, Kitfort, Philips</span></h1>
     <p>Сдайте пустой баллон — получите полный. Пищевой CO₂, проверка герметичности, доставка и самовывоз. Работаем с системами QuickConnect.</p>
     
-    <!-- Обертка для кнопок -->
     <div class="hero-btns">
       <a href="#order" class="btn">Заказать обмен</a>
       <a href="#prices" class="btn btn-outline" style="margin-left:12px;">Смотреть цены</a>
@@ -230,7 +217,6 @@
 <section>
   <div class="container">
     <div class="qc-block">
-      <div class="qc-icon">🔗</div>
       <h3>Работаем с QuickConnect</h3>
       <p>Обслуживаем баллоны под системы <strong>Quick Connect</strong> (быстросъёмное крепление без резьбы). Если у вашего сифона баллон фиксируется защёлкой или рычажком — это тот самый случай. Обмен и заправка таких баллонов — к нам.</p>
       <div class="qc-tag">QuickConnect ✓</div>
@@ -242,24 +228,28 @@
   <div class="container">
     <h2>Цены</h2>
     <div class="prices">
+      
       <div class="price-card highlight">
         <h3>Обмен баллона</h3>
-        <div class="price">600 <small>₽</small></div>
+        <div class="price">600 ₽</div>
         <div class="price-desc">Вы сдаёте пустой баллон — получаете полный. Самовывоз.</div>
         <a href="#order" class="btn">Заказать</a>
       </div>
+      
       <div class="price-card">
         <h3>Обмен с доставкой</h3>
-        <div class="price">600 ₽ <small>+ 500 ₽ доставка</small></div>
+        <div class="price">600 ₽ <span style="font-size:16px; font-weight:600; opacity:0.8;">+ 500 ₽ доставка</span></div>
         <div class="price-desc">Курьер привозит полный баллон и забирает пустой в пределах КАД.</div>
         <a href="#order" class="btn">Заказать</a>
       </div>
+      
       <div class="price-card">
         <h3>Новый баллон</h3>
-        <div class="price">3 000 <small>₽</small></div>
+        <div class="price">3 000 ₽</div>
         <div class="price-desc">Если у вас нет пустого баллона. Полный баллон 425 г пищевого CO₂.</div>
         <a href="#order" class="btn">Заказать</a>
       </div>
+
     </div>
     <p style="text-align:center; margin-top:24px; color:var(--muted); font-size:15px;">
       * Доставка в пределах КАД — 500 ₽. За КАД — по договорённости.
@@ -289,12 +279,8 @@
         <div class="form-row">
           <div class="form-group">
             <label for="quantity">Количество баллонов</label>
-            <select id="quantity" name="quantity">
-              <option value="1">1 баллон</option>
-              <option value="2">2 баллона</option>
-              <option value="3">3 баллона</option>
-              <option value="4+">4 и более</option>
-            </select>
+            <!-- Заменили select на input type="number" -->
+            <input type="number" id="quantity" name="quantity" min="1" value="1" placeholder="1" required>
           </div>
           <div class="form-group">
             <label>Способ получения</label>
@@ -359,8 +345,8 @@
     <div class="footer-contacts">
       <a class="phone" href="tel:+79013133818" style="color:#fff;">+7 901 313-38-18</a>
       <div class="messenger-btns">
-        <a class="msg-btn msg-max" href="https://max.ru" target="_blank" rel="noopener">MAX</a>
-        <a class="msg-btn msg-tg" href="https://t.me/" target="_blank" rel="noopener">Telegram</a>
+        <a class="msg-btn msg-max" href="https://max.ru/465152118" target="_blank" rel="noopener">MAX</a>
+        <a class="msg-btn msg-tg" href="https://t.me/obmenballonov" target="_blank" rel="noopener">Telegram</a>
       </div>
     </div>
     <p style="margin-top:18px; font-size:13px; color:#7d9bb5;">© 2026 sodashop. Все права защищены.</p>
@@ -373,9 +359,8 @@
   }
 
   // === НАСТРОЙКИ TELEGRAM ===
-  // ВАЖНО: Замените эти строки на ваш НОВЫЙ токен и chat_id!
-  const TG_TOKEN = 'ВАШ_НОВЫЙ_ТОКЕН';   
-  const TG_CHAT_ID = 'ВАШ_CHAT_ID';     
+  const TG_TOKEN = '9015169181:AAGcKrXK9HIN_dydTwGrbmSvw3y60pglt24';   
+  const TG_CHAT_ID = '6993520689';     
 
   function sendToTelegram(data) {
     const text = `🔔 Новая заявка sodashop!\n` +
@@ -397,7 +382,7 @@
     const data = {
       name: form.name.value,
       phone: form.phone.value,
-      quantity: form.quantity.value,
+      quantity: form.quantity.value, // Теперь забирает значение из input
       delivery: form.delivery.value,
       comment: form.comment.value
     };
