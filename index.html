@@ -51,6 +51,9 @@
   .hero p { font-size:19px; margin-bottom:28px; max-width:740px; opacity:.96; }
   .hero-badge { display:inline-block; background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.5); padding:6px 16px; border-radius:30px; font-size:14px; font-weight:600; margin-bottom:18px; }
   
+  /* Обертка для кнопок Hero */
+  .hero-btns { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+
   .btn { display:inline-block; background:var(--blue-dark); color:#fff; padding:16px 36px; border-radius:10px; font-size:18px; font-weight:800; text-decoration:none; border:none; cursor:pointer; transition:.2s; }
   .btn:hover { background:#082a45; transform:translateY(-2px); }
   .btn-outline { background:transparent; color:#fff; border:2px solid #fff; }
@@ -120,6 +123,7 @@
   .success-msg { display:none; background:#e6f7ee; border:2px solid #29a35c; color:#1e7e34; padding:20px; border-radius:10px; text-align:center; font-weight:700; font-size:17px; margin-bottom:18px; }
   .success-msg.show { display:block; }
 
+  /* ===== АДАПТИВНОСТЬ ===== */
   @media (max-width:768px){
     .hero h1 { font-size:28px; }
     .hero { padding:46px 0; }
@@ -127,9 +131,32 @@
     section h2 { font-size:24px; margin-bottom:28px; }
     .header-inner { justify-content:center; text-align:center; }
     .header-contacts { justify-content:center; }
-    .phone { font-size:17px; }
     .qc-block { padding:32px 20px; }
     .logo .soda, .logo .shop { font-size:24px; }
+  }
+
+  /* Кнопки "Заказать обмен" и "Смотреть цены" в один ряд на мобилке */
+  @media (max-width: 600px) {
+    .hero-btns {
+      flex-wrap: nowrap; /* Запрещаем перенос на новую строку */
+      gap: 8px;          /* Уменьшаем отступ между кнопками */
+      justify-content: flex-start;
+    }
+    .hero-btns .btn {
+      padding: 12px 16px; /* Уменьшаем отступы внутри кнопок */
+      font-size: 14px;    /* Уменьшаем шрифт */
+      white-space: nowrap;/* Запрещаем перенос текста внутри кнопки */
+      flex: 1;            /* Растягиваем кнопки равномерно */
+      text-align: center;
+    }
+    /* Убираем инлайн-стиль отступа, который мешал */
+    .hero-btns .btn[style*="margin-left"] {
+      margin-left: 0 !important;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .hero-btns .btn { padding: 10px 12px; font-size: 13px; }
   }
 </style>
 </head>
@@ -143,8 +170,8 @@
     <div class="header-contacts">
       <a class="phone" href="tel:+79013133818">+7 901 313-38-18</a>
       <div class="messenger-btns">
-        <a class="msg-btn msg-max" href="https://max.ru/465152118" target="_blank" rel="noopener">MAX</a>
-        <a class="msg-btn msg-tg" href="https://t.me/obmenballonov" target="_blank" rel="noopener">Telegram</a>
+        <a class="msg-btn msg-max" href="https://max.ru" target="_blank" rel="noopener">MAX</a>
+        <a class="msg-btn msg-tg" href="https://t.me/" target="_blank" rel="noopener">Telegram</a>
       </div>
     </div>
   </div>
@@ -155,8 +182,12 @@
     <span class="hero-badge">📍 Санкт-Петербург и ЛенОбласть</span>
     <h1>Обмен баллонов для сифонов<br><span>SodaStream, HomeBar, Kitfort, Philips</span></h1>
     <p>Сдайте пустой баллон — получите полный. Пищевой CO₂, проверка герметичности, доставка и самовывоз. Работаем с системами QuickConnect.</p>
-    <a href="#order" class="btn">Заказать обмен</a>
-    <a href="#prices" class="btn btn-outline" style="margin-left:12px;">Смотреть цены</a>
+    
+    <!-- Обертка для кнопок -->
+    <div class="hero-btns">
+      <a href="#order" class="btn">Заказать обмен</a>
+      <a href="#prices" class="btn btn-outline" style="margin-left:12px;">Смотреть цены</a>
+    </div>
   </div>
 </section>
 
@@ -328,8 +359,8 @@
     <div class="footer-contacts">
       <a class="phone" href="tel:+79013133818" style="color:#fff;">+7 901 313-38-18</a>
       <div class="messenger-btns">
-        <a class="msg-btn msg-max" href="https://max.ru/465152118" target="_blank" rel="noopener">MAX</a>
-        <a class="msg-btn msg-tg" href="https://t.me/obmenballonov" target="_blank" rel="noopener">Telegram</a>
+        <a class="msg-btn msg-max" href="https://max.ru" target="_blank" rel="noopener">MAX</a>
+        <a class="msg-btn msg-tg" href="https://t.me/" target="_blank" rel="noopener">Telegram</a>
       </div>
     </div>
     <p style="margin-top:18px; font-size:13px; color:#7d9bb5;">© 2026 sodashop. Все права защищены.</p>
@@ -342,8 +373,9 @@
   }
 
   // === НАСТРОЙКИ TELEGRAM ===
-  const TG_TOKEN = '9015169181:AAGcKrXK9HIN_dydTwGrbmSvw3y60pglt24';  
-  const TG_CHAT_ID = '6993520689';    
+  // ВАЖНО: Замените эти строки на ваш НОВЫЙ токен и chat_id!
+  const TG_TOKEN = 'ВАШ_НОВЫЙ_ТОКЕН';   
+  const TG_CHAT_ID = 'ВАШ_CHAT_ID';     
 
   function sendToTelegram(data) {
     const text = `🔔 Новая заявка sodashop!\n` +
